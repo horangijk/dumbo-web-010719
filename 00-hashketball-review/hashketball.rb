@@ -129,9 +129,54 @@ end
 
 
 
-# num_points_scored("Jeff Adrien")
 
 
+# 1. Iterate within the hash
+# 2. Find the particular player by the name
+# 3. Puts/Returns points
+
+def num_points_scored(player_name)
+  # binding.pry
+  # game_hash.each do |team, data|
+  #    data[:players].each do |player|
+  #      if player[:name] == player_name
+  #        return player[:points]
+  #      end
+  #    end
+  #  end
+  #
+  #  return nil
+
+  found_player = find_player(player_name)
+  found_player[:points]
+end
+
+def shoe_size(player_name)
+  # 1. Iterate within the hash
+  # 2. Find the particular player by the name
+  # 3. Puts/Returns shoe_size
+  found_player = find_player(player_name)
+  found_player[:shoe]
+end
+
+def players
+  game_hash[:home][:players].concat(game_hash[:away][:players])
+end
+
+def find_player(player_name)
+  players.find do |player|
+    player[:name] == player_name
+  end
+end
+# DRY - Don't Repeat Yourself
+
+
+
+# Return the number of points scored
+# by the given name
+puts num_points_scored("Jeff Adrien")
+# puts num_points_scored("Alan Anderson")
+# puts num_points_scored("Prince Wilson")
 
 
 
