@@ -1,4 +1,4 @@
-# Lecture: One-To-Many
+# Lecture: One-To-Many Relationship
 
 ## Agenda
 * Review OO Concepts
@@ -13,6 +13,7 @@
   * `User#username` that returns a username as a string
   * `User#tweets` that returns an array of Tweet instances that belong to an individual user
   * `User#post_tweet` that takes a message, creates a new tweet, and adds it to the user's tweet collection
+
 * Create a Tweet class. The class should have these methods:
   * `#initialize` which takes a message and a user
   * `Tweet.all` that returns all the Tweets created.
