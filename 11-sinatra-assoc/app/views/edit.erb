@@ -1,0 +1,21 @@
+<h2>Edit Film ~here~</h2>
+
+<!-- method is always the request method/http verb -->
+<!-- action is ALWAYS the url it needs to go -->
+<!-- PATCH "/films/:id" -->
+<form action="/films/<%= @film.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH" />
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" value="<%= @film.title %>"/>
+  </div>
+  <div>
+    <label>Year</label>
+    <input type="number" name="year" value="<%= @film.year %>"/>
+  </div>
+  <div>
+    <label>Genre</label>
+    <input type="text" name="genre" value="<%= @film.genre %>"/>
+  </div>
+    <input type="submit" value="Edit this film"/>
+</form>
