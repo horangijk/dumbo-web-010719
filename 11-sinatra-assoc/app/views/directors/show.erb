@@ -1,0 +1,7 @@
+<h1><%= @director.name %></h1>
+
+<ol>
+<% @director.films.each do |film| %>
+  <li><%= film.title %></li>
+<% end %>
+</ol>

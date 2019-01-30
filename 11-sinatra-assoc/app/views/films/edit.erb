@@ -7,15 +7,22 @@
   <input type="hidden" name="_method" value="PATCH" />
   <div>
     <label>Title</label>
-    <input type="text" name="title" value="<%= @film.title %>"/>
+    <input type="text" name="film[title]" value="<%= @film.title %>"/>
   </div>
   <div>
     <label>Year</label>
-    <input type="number" name="year" value="<%= @film.year %>"/>
+    <input type="number" name="film[year]" value="<%= @film.year %>"/>
   </div>
   <div>
     <label>Genre</label>
-    <input type="text" name="genre" value="<%= @film.genre %>"/>
+    <input type="text" name="film[genre]" value="<%= @film.genre %>"/>
+  </div>
+  <div>
+    <select name="film[director_id]">
+      <% @directors.each do |director| %>
+        <option value="<%= director.id %>"><%= director.name %></option>
+      <% end %>
+    </select>
   </div>
     <input type="submit" value="Edit this film"/>
 </form>

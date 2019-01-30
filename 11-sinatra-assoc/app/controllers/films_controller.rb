@@ -7,18 +7,19 @@ class FilmsController < ApplicationController
 
     # Then we need to tell it what view to show
     # erb is looking for a file path and so it is expecting a symbol
-    erb :index # '/views/index.erb'
+    erb :'/films/index' # '/views/films/index.erb'
   end
 
   # New and we will showcase the FORM to make something new
   get '/films/new' do
-    erb :new
+    @directors = Director.all
+    erb :'/films/new'
   end
 
   post '/films' do
     binding.pry
 
-    film =  Film.new(title: params["title"], year: params["year"], genre: params["genre"])
+    film =  Film.new(params["film"])
     film.save
 
     redirect to("/films/#{film.id}") #=> "/films/4"
@@ -27,13 +28,14 @@ class FilmsController < ApplicationController
   get '/films/:id/edit' do
     # Look for the particular film
     @film = Film.find(params[:id])
+    @directors = Director.all
     # render the edit form
-    erb :edit
+    erb :'/films/edit'
   end
 
   patch '/films/:id' do
     film =  Film.find(params[:id])
-    film.update(title: params["title"], year: params["year"], genre: params["genre"])
+    film.update(params["film"])
 
 
     redirect to("/films/#{film.id}")
@@ -53,7 +55,7 @@ class FilmsController < ApplicationController
     # We can also test what data is coming by using binding.pry still
     # binding.pry
     @film = Film.find(params[:id])
-    erb :show
+    erb :'/films/show'
   end
 
 

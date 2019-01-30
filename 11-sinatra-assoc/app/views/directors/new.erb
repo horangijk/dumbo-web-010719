@@ -1,0 +1,16 @@
+
+<!-- {name: "Helen", age: "1", style: "Kung Fu"} -->
+<!-- <form action="/directors" method="POST">
+  <input type="text" name="name"/>
+  <input type="number" name="age"/>
+  <input type="text" name="style"/>
+  <input type="submit" value="Create a new ~Boss~ Director"/>
+</form> -->
+
+<!-- {director: {name: "Helen"}, age: 1, style: "Kung Fu"} -->
+<form action="/directors" method="POST">
+  <input type="text" name="director[name]"/>
+  <input type="number" name="director[age]"/>
+  <input type="text" name="director[style]"/>
+  <input type="submit" value="Create a new ~Boss~ Director"/>
+</form>

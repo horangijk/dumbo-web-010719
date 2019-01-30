@@ -5,6 +5,7 @@ require_relative './config/environment'
 
 # When I add a new controller, I want to "use" it
 use FilmsController
+use DirectorsController
 
 # Only run the application controller
 run ApplicationController
