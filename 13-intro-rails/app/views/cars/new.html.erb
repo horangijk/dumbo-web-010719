@@ -1,0 +1,19 @@
+<h1>Create A New Car</h1>
+
+<%= form_tag("/cars") do %>
+  <%= label_tag :name, "Cool Car" %>
+  <%= text_field_tag :name %>
+  <%= label_tag :make %>
+  <%= text_field_tag :make %>
+  <%= label_tag :color %>
+  <%= text_field_tag :color %>
+  <%= submit_tag "Create a new Car" %>
+<% end %>
+
+<!-- <hr/>
+
+<form class="" action="/cars" method="post">
+  <label>Name</label><input type="text" name="name" />
+  <label>Make</label><input type="text" name="make"/>
+  <label>Color</label><input type="text" name="color" />
+</form> -->

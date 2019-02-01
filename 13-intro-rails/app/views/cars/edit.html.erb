@@ -1,0 +1,11 @@
+<h1>Edit A Car</h1>
+
+<%= form_tag("/cars/#{@car.id}", {method: :patch}) do %>
+  <%= label_tag :name, "Cool Car" %>
+  <%= text_field_tag :name, @car.name %>
+  <%= label_tag :make %>
+  <%= text_field_tag :make, @car.make %>
+  <%= label_tag :color %>
+  <%= text_field_tag :color, @car.color %>
+  <%= submit_tag "Edit this Car" %>
+<% end %>
