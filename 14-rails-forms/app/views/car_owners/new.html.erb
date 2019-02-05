@@ -1,0 +1,10 @@
+<h1>Purchase a new Car</h1>
+
+<%= form_for @car_owner do |f| %>
+  <%= f.label :years_held  %>
+  <%= f.number_field :years_held  %>
+  <%= f.label :owner_id %>
+  <%= f.collection_select :owner_id, Owner.all, :id, :name %>
+  <%= f.collection_select :car_id, Car.all, :id, :name %>
+  <%= f.submit %>
+<% end %>

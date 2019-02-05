@@ -1,0 +1,7 @@
+<h1><%= @car.name %></h1>
+<h3><%= @car.make %></h3>
+<p><%= @car.color %></p>
+
+<%= form_tag("/cars/#{@car.id}", method: :delete) do %>
+  <%= submit_tag "DELETE THIS CAR" %>
+<% end %>
