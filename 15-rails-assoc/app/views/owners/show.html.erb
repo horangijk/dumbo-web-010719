@@ -1,0 +1,18 @@
+<%= @owner.name %>
+
+<% @owner.cars.each do |car| %>
+  <li><%= link_to car.name, car_path(car) %></li>
+<% end %>
+
+<h1>Purchase a new Car</h1>
+
+<%# Creating a car owner: POST /car_owners %>
+<%= form_for @car_owner do |f| %>
+  <%= f.label :years_held  %>
+  <%= f.number_field :years_held  %>
+  <%= f.hidden_field :owner_id, value: @owner.id %>
+  <%# f.label :owner_id %>
+  <%# f.collection_select :owner_id, Owner.all, :id, :name %>
+  <%= f.collection_select :car_id, Car.all, :id, :name %>
+  <%= f.submit %>
+<% end %>
