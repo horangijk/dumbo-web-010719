@@ -1,0 +1,12 @@
+<h1>Log in Page is here!</h1>
+
+<% if flash[:error] %>
+  <li><%= flash[:error] %></li>
+<% end %>
+
+
+<%= form_tag "/sessions"  do %>
+  <%= text_field_tag :email %>
+  <%= text_field_tag :password %>
+  <%= submit_tag %>
+<% end %>

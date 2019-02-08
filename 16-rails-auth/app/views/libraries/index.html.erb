@@ -1,0 +1,7 @@
+<%= form_tag "/logout", method: :delete do %>
+  <%= submit_tag "Logout" %>
+<% end %>
+
+<% @libraries.each do |library| %>
+  <li><%= library.name %></li>
+<% end %>
