@@ -1,0 +1,32 @@
+.trash-button {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+li {
+  border: 1px solid grey;
+  border-radius: 4px;
+  max-width: 300px;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 10px;
+}
+#checked-out-books li {
+  background: lightgrey;
+  background-image: url('https://akns-images.eonline.com/eol_images/Entire_Site/201506/rs_500x213-150106140225-tumblr_lx7an6a7pT1r4etbjo1_r1_500.gif');
+  background-size: cover;
+}
+#checked-out-books li * {
+  color: white;
+}
+#checked-out-books li button {
+  background: black;
+}
+#checked-out-books .trash-button {
+  background: #ffffffab;
+  padding: 10px;
+  border-radius: 50%;
+}
+body {
+  padding-bottom: 100px;
+}
