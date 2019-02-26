@@ -1,0 +1,26 @@
+input[type="text"] {
+  width: 20vw;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button, input[type="submit"]{
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.taco {
+  font-size: 10vh;
+  margin-right: 10vw;
+  text-align: center;
+}
+
+#main-list {
+  list-style-type: none;
+  border: 2px dashed black;
+  border-radius: 5px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
