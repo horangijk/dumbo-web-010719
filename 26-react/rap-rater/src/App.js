@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Header from "./Header";
+import RapContainer from "./RapContainer";
 
 class App extends Component {
   render() {
@@ -8,8 +8,7 @@ class App extends Component {
     let otherName = "Frontend Freaks";
     return (
       <div>
-        <Header name={name} />
-        <Header name={otherName} />
+        <RapContainer />
       </div>
     );
   }
