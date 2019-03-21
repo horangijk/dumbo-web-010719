@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
 class RapCard extends React.Component {
   // constructor(){
@@ -21,17 +22,19 @@ class RapCard extends React.Component {
     return (
       <div>
         <h2>{this.props.rapper.name}</h2>
-        <img
-          src={
-            this.state.clicked
-              ? this.props.rapper.happyImage
-              : this.props.rapper.sadImage
-          }
-        />
+        <Link to={`/rappers/${this.props.rapper.name}`}>
+          <img
+            src={
+              this.state.clicked
+                ? this.props.rapper.happyImage
+                : this.props.rapper.sadImage
+            }
+          />
+        </Link>
         <button onClick={this.clickHandler}>button</button>
       </div>
     );
   }
 }
 
-export default RapCard;
+export default withRouter(RapCard);

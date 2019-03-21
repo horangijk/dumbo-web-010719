@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
 import RapCard from "./RapCard";
 import Form from "./Form";
 import Search from "./Search";
+import Home from "./Home";
 class RapContainer extends Component {
   // constructor() {
   //   super();
@@ -16,7 +18,7 @@ class RapContainer extends Component {
 
   componentDidMount() {
     console.log("did mount");
-    fetch("http://localhost:3005/rapperList")
+    fetch("http://localhost:3000/rapperList")
       .then(resp => resp.json())
       .then(rappers =>
         this.setState({ rappers: rappers, filteredRappers: rappers })
@@ -40,23 +42,51 @@ class RapContainer extends Component {
   };
 
   render() {
-    let arrayOfRapCards = this.state.filteredRappers.map(rapperObj => (
-      <RapCard key={rapperObj.name} rapper={rapperObj} />
-    ));
-    console.log("container array", arrayOfRapCards);
     return (
       <div>
-        <Form submitHandler={this.submitHandler} />
-        <br />
-        <Search
-          value={this.state.searchTerm}
-          changeHandler={this.changeHandler}
-        />
-        <br />
-        {this.state.rappers.length > 0 ? arrayOfRapCards : <h1>Loading</h1>}
+        <Switch>
+          <Route
+            path="/rappers/:name"
+            render={renderProps => {
+              console.log("render props", renderProps);
+              renderProps.history.push("/home");
+              let name = renderProps.match.params.name;
+              let rapper = this.state.rappers.find(
+                rapper => rapper.name.toLowerCase() === name.toLowerCase()
+              );
+              console.log("render rapper", rapper);
+              return <RapCard rapper={rapper} />;
+            }}
+          />
+
+          <Route
+            path="/rappers"
+            render={() => {
+              let arrayOfRapCards = this.state.filteredRappers.map(
+                rapperObj => <RapCard key={rapperObj.name} rapper={rapperObj} />
+              );
+              return (
+                <div>
+                  <Form submitHandler={this.submitHandler} />
+                  <br />
+                  <Search
+                    value={this.state.searchTerm}
+                    changeHandler={this.changeHandler}
+                  />
+                  <br />
+                  {this.state.rappers.length > 0 ? (
+                    arrayOfRapCards
+                  ) : (
+                    <h1>Loading</h1>
+                  )}
+                </div>
+              );
+            }}
+          />
+        </Switch>
       </div>
     );
   }
 }
 
-export default RapContainer;
+export default withRouter(RapContainer);
