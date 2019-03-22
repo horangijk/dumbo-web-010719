@@ -18,12 +18,12 @@ class RapCard extends React.Component {
   };
 
   render() {
-    console.log("card props", this.props.rapper);
     return (
       <div>
         <h2>{this.props.rapper.name}</h2>
         <Link to={`/rappers/${this.props.rapper.name}`}>
           <img
+            alt=""
             src={
               this.state.clicked
                 ? this.props.rapper.happyImage
