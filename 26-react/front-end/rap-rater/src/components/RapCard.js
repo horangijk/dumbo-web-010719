@@ -2,11 +2,6 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
 class RapCard extends React.Component {
-  // constructor(){
-  //   super()
-  //   this.state = {}
-  // }
-  //
   state = {
     clicked: false
   };
